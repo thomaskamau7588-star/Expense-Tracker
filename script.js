@@ -149,3 +149,40 @@ function displayExpenses() {
     totalExpenses.textContent =
         `KSh ${tracker.calculateTotal().toFixed(2)}`;
 }
+
+// Add New Expense
+expenseForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    // Get input values
+    const description = descriptionInput.value.trim();
+    const amount = Number(amountInput.value);
+    const category = categoryInput.value;
+
+    // Validate inputs
+    if (!description || !category || !Number.isFinite(amount) || amount <= 0) {
+        alert("Please enter valid expense details.");
+        return;
+    }
+
+    // Create new expense object
+    const newExpense = new Expense(description, amount, category);
+
+    // Add expense to tracker
+    tracker.addExpense(newExpense);
+
+    // Reset the form
+    expenseForm.reset();
+
+    // Display updated expenses
+    displayExpenses();
+});
+
+
+// Filter Expenses
+filterCategory.addEventListener("change", displayExpenses);
+
+
+// Display saved expenses when the page loads
+displayExpenses();
