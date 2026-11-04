@@ -141,3 +141,37 @@ button:hover {
     background-color: #a4161a;
 }
 
+/* Footer */
+footer {
+    background-color: #111111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .expense-form,
+    .expense-list {
+        padding: 18px;
+    }
+
+    #expense-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    button {
+        width: 100%;
+    }
+}
