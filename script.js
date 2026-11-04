@@ -37,5 +37,15 @@ class ExpenseTracker {
     }
 }
 
+ // Filter expenses by category
+    filterExpenses(category) {
+        if (category === "All") {
+            return this.expenses;
+        }
 
+        return this.expenses.filter(
+            expense => expense.category === category
+        );
+    }
+    
 
