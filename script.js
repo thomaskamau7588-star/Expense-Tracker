@@ -9,22 +9,23 @@ class Expense {
     }
 }
 
+
 // ExpenseTracker Class
 class ExpenseTracker {
     constructor() {
-        this.expenses = this.addExpenses();
+        this.expenses = this.loadExpenses();
     }
 
     // Add a new expense
     addExpense(expense) {
         this.expenses = [...this.expenses, expense];
-        this.expenses();
+        this.saveExpenses();
     }
 
     // Add multiple expenses using the rest operator
     addExpenses(...expenses) {
         this.expenses = [...this.expenses, ...expenses];
-        this.expenses();
+        this.saveExpenses();
     }
 
     // Remove an expense
@@ -33,11 +34,10 @@ class ExpenseTracker {
             expense => expense.id !== id
         );
 
-        this.expenses();
+        this.saveExpenses();
     }
-}
 
-  // Filter expenses by category
+    // Filter expenses by category
     filterExpenses(category) {
         if (category === "All") {
             return this.expenses;
@@ -48,7 +48,7 @@ class ExpenseTracker {
         );
     }
 
-     // Calculate total expenses for today
+    // Calculate total expenses for today
     calculateTotal() {
         const today = new Date().toDateString();
 
@@ -66,3 +66,15 @@ class ExpenseTracker {
             JSON.stringify(this.expenses)
         );
     }
+ // Load expenses from LocalStorage
+    loadExpenses() {
+        const savedExpenses = localStorage.getItem("expenses");
+
+        if (savedExpenses) {
+            return JSON.parse(savedExpenses);
+        }
+
+        return [];
+    }
+}
+
