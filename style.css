@@ -95,3 +95,20 @@ select:focus {
     outline: none;
     border-color: #ff9500;
 }
+
+/* Buttons */
+button {
+    background-color: #ff9500;
+    color: #111111;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #e68500;
+    color: white;
+}
