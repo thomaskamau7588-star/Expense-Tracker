@@ -112,3 +112,21 @@ button:hover {
     background-color: #e68500;
     color: white;
 }
+
+/* Expense List */
+#expense-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+#expense-list li {
+    background-color: #f4f4f4;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid #ff9500;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
