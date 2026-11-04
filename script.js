@@ -90,3 +90,62 @@ const categoryInput = document.getElementById("category");
 const expenseList = document.getElementById("expense-list");
 const totalExpenses = document.getElementById("total-expenses");
 const filterCategory = document.getElementById("filter-category");
+
+// Display Expenses
+function displayExpenses() {
+
+    // Get selected category
+    const selectedCategory = filterCategory.value;
+
+    // Filter expenses
+    const filteredExpenses = tracker.filterExpenses(selectedCategory);
+
+    // Clear the previous list
+    expenseList.innerHTML = "";
+
+    // Use map() to create expense items
+    const expenseItems = filteredExpenses.map(expense => {
+
+        // Destructuring
+        const { id, description, amount, category, date } = expense;
+
+        // Create list item
+        const listItem = document.createElement("li");
+
+        // Create expense details
+        const expenseDetails = document.createElement("span");
+
+        expenseDetails.textContent =
+            `${description} - ${category} - KSh ${amount.toFixed(2)}`;
+
+        // Create delete button
+        const deleteButton = document.createElement("button");
+
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "delete-btn";
+
+        // Delete expense when clicked
+        deleteButton.addEventListener("click", function() {
+            tracker.removeExpense(id);
+            displayExpenses();
+        });
+
+        // Add details and button to list item
+        listItem.append(expenseDetails, deleteButton);
+
+        return listItem;
+    });
+
+    // Display expense items
+    if (expenseItems.length === 0) {
+        const emptyMessage = document.createElement("li");
+        emptyMessage.textContent = "No expenses found.";
+        expenseList.append(emptyMessage);
+    } else {
+        expenseList.append(...expenseItems);
+    }
+
+    // Update total expenses
+    totalExpenses.textContent =
+        `KSh ${tracker.calculateTotal().toFixed(2)}`;
+}
