@@ -56,4 +56,26 @@ main {
     color: #ff9500;
 }
 
+/* Expense Form and List */
+.expense-form,
+.expense-list {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.expense-form h2,
+.expense-list h2 {
+    color: #111111;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
 
