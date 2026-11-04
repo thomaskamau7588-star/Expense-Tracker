@@ -78,3 +78,15 @@ class ExpenseTracker {
     }
 }
 
+// Create ExpenseTracker object
+const tracker = new ExpenseTracker();
+
+
+// Get HTML Elements
+const expenseForm = document.getElementById("expense-form");
+const descriptionInput = document.getElementById("description");
+const amountInput = document.getElementById("amount");
+const categoryInput = document.getElementById("category");
+const expenseList = document.getElementById("expense-list");
+const totalExpenses = document.getElementById("total-expenses");
+const filterCategory = document.getElementById("filter-category");
