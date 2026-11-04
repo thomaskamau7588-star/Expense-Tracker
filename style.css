@@ -130,3 +130,14 @@ button:hover {
     align-items: center;
     gap: 10px;
 }
+
+/* Delete Button */
+.delete-btn {
+    background-color: #d62828;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #a4161a;
+}
+
